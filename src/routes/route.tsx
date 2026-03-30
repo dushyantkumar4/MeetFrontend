@@ -12,11 +12,11 @@ export const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: "login",
+        path: "api/login",
         element: <></>,
       },
       {
-        path: "register",
+        path: "api/register",
         element: <></>,
       },
     ],

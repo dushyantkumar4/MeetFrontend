@@ -1,10 +1,12 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
-export const attachTokenInterceptor = (getToken: () => Promise<string | null>) => {
+export const attachTokenInterceptor = (
+  getToken: () => Promise<string | null>,
+) => {
   api.interceptors.request.use(async (config) => {
     const token = await getToken();
 

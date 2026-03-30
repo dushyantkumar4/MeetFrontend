@@ -1,6 +1,5 @@
 import Button from "@mui/material/Button";
 
-
 const LandingPage = () => {
   return (
     <div className="flex justify-around items-center">
@@ -14,7 +13,6 @@ const LandingPage = () => {
           <span className="text-purple-500">DecentMeet</span> Video Call
         </p>
         <Button variant="contained">Get Started</Button>
-        
       </div>
       <div>
         <img src="/amico.png" alt="img" className="size-90 mt-5" />
