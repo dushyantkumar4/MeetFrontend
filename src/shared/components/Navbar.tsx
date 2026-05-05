@@ -1,6 +1,7 @@
 import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/react";
 
 import { useState } from "react";
+import logo from "@/assets/meetLogo4.png";
 
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +24,7 @@ const Navbar = () => {
             className="flex items-center gap-3"
             onClick={() => navigate("/")}
           >
-            <img src="" className="size-10 rounded-full shadow-lg" alt="logo" />
+            <img src={logo} className="w-15 object-cover" alt="logo" />
             <p className={` font-bold text-lg md:text-xl`}>Decent Meet</p>
           </div>
         </div>
@@ -55,7 +56,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-green-500"
+          className="md:hidden text-purple-500"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X /> : <Menu />}
@@ -70,13 +71,13 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="mt-1  text-green-400 hover:text-green-500 transition"
+              className="mt-1  text-purple-500 hover:text-purple-600 transition"
             >
               {link.name}
             </a>
           ))}
 
-          <div className="flex items-center justify-between text-green-400 hover:text-green-500 transition">
+          <div className="flex items-center justify-between text-purple-500 hover:text-purple-600 transition">
             <span className="">Theme</span>
             <button>
               <Sun size={20} /> <Moon size={20} />
