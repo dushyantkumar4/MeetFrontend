@@ -1,4 +1,5 @@
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@/components/ui/button";
+import { Video } from "lucide-react";
 
 const LandingPage = () => {
   return (
@@ -6,16 +7,23 @@ const LandingPage = () => {
       <div className="flex items-center justify-center p-6 order-2 md:order-1">
         <div className="flex flex-col items-start gap-5">
           <h1 className="text-4xl font-bold">
-          <span className="text-purple-500">Connect</span> with your loved
-          Once{" "}
-        </h1>
-        <p className="text-2xl font-semibold">
-          Cover a distance by{" "}
-          <span className="text-purple-500">DecentMeet</span> Video Call
-        </p>
-        <Button variant="secondary">Get Started</Button>
+            <span className="gradient-text-primary">Connect</span> with your loved
+            Once{" "}
+          </h1>
+          <p className="text-2xl font-semibold">
+            Cover any distance with{" "}
+            <span className="gradient-text-primary">DecentMeet</span> Video Call
+          </p>
+          <Button
+            className=" gradient-primary"
+          >
+            <Video />
+            New meeting
+          </Button>
+          <div className="text-gray-400">
+            Video calls, chats, and share files with anyone, anytime — for free.
+          </div>
         </div>
-        
       </div>
       <div className="flex items-center justify-center p-6 order-1 md:order-2">
         <img src="/amico.png" alt="img" className="size-90 mt-5" />

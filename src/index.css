@@ -128,3 +128,30 @@
     @apply font-sans;
     }
 }
+
+/* text animation with color  */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-primary {
+  @apply bg-gradient-to-r from-purple-500 text-white via-violet-500 to-indigo-500;
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+}
+
+.gradient-text-primary {
+  @apply bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-500 bg-clip-text text-transparent;
+  background-size: 200% 200%;
+  animation: gradientMove 3s ease infinite;
+}

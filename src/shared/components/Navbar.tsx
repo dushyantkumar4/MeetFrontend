@@ -1,7 +1,7 @@
-import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/react";
+import { Show, SignInButton, UserButton } from "@clerk/react";
 
 import { useState } from "react";
-import logo from "@/assets/meetLogo4.png";
+import logo from "@/assets/meetLogo6.png";
 
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={` sticky top-0 z-50 bg-white/10 backdrop-blur-md  rounded-lg shadow-sm`}
+      className={` sticky top-0 z-50 bg-white/10 backdrop-blur-md  rounded-lg`}
     >
       <div className="flex items-center justify-between px-4 py-2">
         {/* Logo */}
@@ -24,7 +24,7 @@ const Navbar = () => {
             className="flex items-center gap-3"
             onClick={() => navigate("/")}
           >
-            <img src={logo} className="w-15 object-cover" alt="logo" />
+            <img src={logo} className="w-14 object-cover" alt="logo" />
             <p className={` font-bold text-lg md:text-xl`}>Decent Meet</p>
           </div>
         </div>
@@ -36,7 +36,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-purple-500 hover:text-purple-600 transition"
+                className="gradient-text-primary font-bold"
               >
                 {link.name}
               </a>
@@ -44,9 +44,8 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex">
             <Show when="signed-out">
-              <SignInButton /> &nbsp;
-              <SignUpButton />
-            </Show>{" "}
+              <SignInButton />
+            </Show>
             &nbsp;
             <Show when="signed-in">
               <UserButton />
@@ -86,8 +85,7 @@ const Navbar = () => {
 
           <div>
             <Show when="signed-out">
-              <SignInButton /> &nbsp;
-              <SignUpButton />
+              <SignInButton />
             </Show>{" "}
             &nbsp;
             <Show when="signed-in">
