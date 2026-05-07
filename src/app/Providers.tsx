@@ -26,12 +26,12 @@ function AuthInterceptor({ children }: { children: React.ReactNode }) {
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider publishableKey={import.meta.env.VITE_CLERK_PUBLISHABLE_KEY}>
-      <AuthInterceptor>
-        <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <AuthInterceptor>
           {children}
           {import.meta.env.DEV && <ReactQueryDevtools />}
-        </QueryClientProvider>
-      </AuthInterceptor>
+        </AuthInterceptor>
+      </QueryClientProvider>
     </ClerkProvider>
   );
 }
