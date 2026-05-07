@@ -42,7 +42,7 @@ const Navbar = () => {
               </a>
             ))}
           </div>
-          <div className="hidden md:flex">
+          <div className="hidden md:flex gradient-text-primary font-bold">
             <Show when="signed-out">
               <SignInButton />
             </Show>
@@ -58,7 +58,7 @@ const Navbar = () => {
           className="md:hidden text-purple-500"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X /> : <Menu />}
+          {isOpen ? <X/> : <Menu />}
         </button>
       </div>
 
@@ -70,20 +70,21 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="mt-1  text-purple-500 hover:text-purple-600 transition"
+              className="mt-1  gradient-text-primary"
             >
               {link.name}
             </a>
           ))}
 
-          <div className="flex items-center justify-between text-purple-500 hover:text-purple-600 transition">
+          <div className="flex items-center justify-between gradient-text-primary">
             <span className="">Theme</span>
             <button>
-              <Sun size={20} /> <Moon size={20} />
+              <Sun size={20} /> 
+              {/* <Moon size={20} /> */}
             </button>
           </div>
 
-          <div>
+          <div className="gradient-text-primary font-bold">
             <Show when="signed-out">
               <SignInButton />
             </Show>{" "}

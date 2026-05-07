@@ -1,51 +1,61 @@
-
-import { lazy,Suspense } from 'react'
-import { createBrowserRouter, RouterProvider} from 'react-router-dom';
-import Layout from './Layout';
-import { Navigate } from 'react-router-dom';
-import LandingPage from '@/shared/components/LandingPage';
-import Login from '@/features/auth/components/Login';
-
+import { lazy, Suspense } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
+import Layout from "./Layout";
+import { ClipLoader } from "react-spinners";
+import Protected from "@/features/auth/components/Protected";
 
 // Lazy load pages — critical for performance
 // Each page chunk is only loaded when needed
-const DashboardPage = lazy(() => import('@/features/dashboard/pages/DashboardPage'));
-const MeetingPage = lazy(() => import('@/features/meeting/pages/MeetingPage'));
-const PreJoinPage = lazy(() => import('@/features/meeting/pages/PreJoinPage'));
+const LandingPage = lazy(()=>import ("@/shared/components/LandingPage"))
+const DashboardPage = lazy(
+  () => import("@/features/dashboard/pages/DashboardPage"),
+);
+const LoginPage = lazy(() => import("@/features/auth/components/Login"));
+const RegisterPage = lazy(() => import("@/features/auth/components/Register"));
+const MeetingPage = lazy(() => import("@/features/meeting/pages/MeetingPage"));
+const PreJoinPage = lazy(() => import("@/features/meeting/pages/PreJoinPage"));
 
 const router = createBrowserRouter([
   {
     // Public routes (no auth)
-    path: '/',
-    element: <Layout />,
+    path: "/",
+    element: (
+      <Suspense fallback={<ClipLoader color="#e1e2f5" />}>
+        <Outlet />
+      </Suspense>
+    ),
     children: [
       { index: true, element: <LandingPage /> },
-      { path: 'login', element: <Login /> },
+      { path: "login", element: <LoginPage /> },
+      { path: "register", element: <RegisterPage /> },
     ],
   },
   {
     // Protected routes (require Clerk auth)
-    path: '/app',
+    path: "/app",
     element: (
       // <ProtectedRoute>
-        <Layout />
+      <Layout />
       // </ProtectedRoute>
     ),
     children: [
       { index: true, element: <Navigate to="/app/dashboard" /> },
-      { path: 'dashboard', element: <DashboardPage /> },
-      { path: 'meeting/prejoin/:roomId', element: <PreJoinPage /> },
+      { path: "dashboard", element: <DashboardPage /> },
+      { path: "meeting/prejoin/:roomId", element: <PreJoinPage /> },
     ],
   },
   {
     // Meeting room — fullscreen, no sidebar/nav
-    path: '/meeting/:roomId',
+    path: "/meeting/:roomId",
     element: (
-      
-        <Suspense fallback={<LandingPage />}>
-          <MeetingPage />
-        </Suspense>
-    
+      <Suspense fallback={<ClipLoader color="#e1e2f5" className=""/>}>
+        <MeetingPage />
+      </Suspense>
     ),
   },
 ]);

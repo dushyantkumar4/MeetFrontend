@@ -31,7 +31,7 @@ export function initSocket(token: string): Socket {
   return socket;
 }
 
-export function disconnectSocket() {
+export function disconnectSocket():void {
   socket?.disconnect();
   socket = null;
 }

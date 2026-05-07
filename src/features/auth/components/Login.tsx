@@ -2,8 +2,13 @@ import { SignIn } from "@clerk/react";
 
 const Login = () => {
   return (
-    <div>
-      <SignIn />
+    <div className="flex min-h-screen items-center justify-center bg-background">
+      <SignIn
+        path="/login"
+        routing="path"
+        signUpUrl="/register"
+        afterSignInUrl="/dashboard"
+      />
     </div>
   );
 };
