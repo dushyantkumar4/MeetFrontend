@@ -1,8 +1,5 @@
 import { lazy, Suspense } from "react";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
 import { ClipLoader } from "react-spinners";
 import Protected from "@/features/auth/components/Protected";
@@ -23,7 +20,13 @@ const router = createBrowserRouter([
     // Public routes (no auth)
     path: "/",
     element: (
-      <Suspense fallback={<ClipLoader color="#e1e2f5" />}>
+      <Suspense
+        fallback={
+          <div className="flex items-center justify-center min-h-screen">
+            <ClipLoader color="#9C27B0" />
+          </div>
+        }
+      >
         <Layout />
       </Suspense>
     ),
@@ -56,7 +59,13 @@ const router = createBrowserRouter([
     path: "/meeting/:roomId",
     element: (
       <Protected>
-        <Suspense fallback={<ClipLoader color="#e1e2f5" className="" />}>
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center min-h-screen">
+              <ClipLoader color="#9C27B0" />
+            </div>
+          }
+        >
           <MeetingPage />
         </Suspense>
       </Protected>
