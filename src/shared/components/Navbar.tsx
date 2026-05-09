@@ -2,6 +2,7 @@ import { Show, SignInButton, UserButton } from "@clerk/react";
 
 import { useState } from "react";
 import logo from "@/assets/meetLogo6.png";
+import logo1 from "@/assets/meet4.png";
 
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -21,11 +22,12 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div
-            className="flex items-center gap-3"
+            className="flex items-center"
             onClick={() => navigate("/")}
           >
             <img src={logo} className="w-14 object-cover" alt="logo" />
-            <p className={` font-bold text-lg md:text-xl`}>Decent Meet</p>
+            <img src={logo1} alt="" className="h-8 w-40 object-cover"/>
+            {/* <p className={` font-bold text-lg md:text-xl`}>Decent Meet</p> */}
           </div>
         </div>
 
