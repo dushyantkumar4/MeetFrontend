@@ -14,6 +14,7 @@ const LoginPage = lazy(() => import("@/features/auth/components/Login"));
 const RegisterPage = lazy(() => import("@/features/auth/components/Register"));
 const MeetingPage = lazy(() => import("@/features/meeting/pages/MeetingPage"));
 const PreJoinPage = lazy(() => import("@/features/meeting/pages/PreJoinPage"));
+const About = lazy(() => import("@/shared/components/About"));
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,8 @@ const router = createBrowserRouter([
       { index: true, element: <LandingPage /> },
       { path: "login", element: <LoginPage /> },
       { path: "register", element: <RegisterPage /> },
+      { path: "about", element: <About /> },
+      
       // Protected routes (require Clerk auth)
       {
         path: "dashboard",

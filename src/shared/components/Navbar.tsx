@@ -25,8 +25,8 @@ const Navbar = () => {
             className="flex items-center"
             onClick={() => navigate("/")}
           >
-            <img src={logo} className="w-14 object-cover" alt="logo" />
-            <img src={logo1} alt="" className="h-8 w-40 object-cover"/>
+            <img src={logo} className="w-14 object-cover cursor-pointer" alt="logo" />
+            <img src={logo1} alt="" className="h-6 w-40 object-cover cursor-pointer"/>
             {/* <p className={` font-bold text-lg md:text-xl`}>Decent Meet</p> */}
           </div>
         </div>
