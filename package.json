@@ -26,6 +26,7 @@
     "radix-ui": "^1.4.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-parallax-tilt": "^1.7.327",
     "react-router-dom": "^7.13.1",
     "react-spinners": "^0.17.0",
     "shadcn": "^4.6.0",

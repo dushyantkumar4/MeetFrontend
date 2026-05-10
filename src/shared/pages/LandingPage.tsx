@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Video } from "lucide-react";
-// import CarouselCompo from "../components/CarouselCompo";
 import LeftRightCards from "../components/LeftRightCards";
+import Title from "../components/Title";
 
 const LandingPage = () => {
   return (
@@ -34,8 +34,9 @@ const LandingPage = () => {
           <img src="/amico.png" alt="img" className="size-90 mt-5" />
         </div>
       </div>
-      <LeftRightCards/>
-      {/* <CarouselCompo /> */}
+
+      <Title text="FEATURES" />
+      <LeftRightCards />
     </div>
   );
 };

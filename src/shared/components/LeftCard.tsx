@@ -1,4 +1,4 @@
-
+import Tilt from "react-parallax-tilt";
 export interface CardProp {
   img: string;
   title: string;
@@ -13,7 +13,13 @@ const LeftCard = ({ img, title, description }: CardProp) => {
         <p>{description}</p>
       </div>
       <div className="flex items-center justify-center order-1 md:order-2">
-        <img src={img} alt="card image" className="h-60 w-80 rounded-lg" />
+        <Tilt tiltMaxAngleX={25} tiltMaxAngleY={25} perspective={500}>
+          <img
+            src={img}
+            alt="card image"
+            className="h-60 w-80 rounded-lg object-fit"
+          />
+        </Tilt>
       </div>
     </div>
   );

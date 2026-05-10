@@ -1,9 +1,9 @@
 import LeftCard from "./LeftCard";
 import RightCard from "./RightCard";
-import shareImg from "@/assets/meetShare.png";
-import messageImg from "@/assets/meetMesssage.png";
-import meetingImg from "@/assets/meetGridGlass.png";
-import videoCall from "@/assets/meetLogo1.png";
+import shareImg from "@/assets/card2.png";
+import messageImg from "@/assets/card3.png";
+import meetingImg from "@/assets/card4.png";
+import videoCall from "@/assets/card1.png";
 
 const LeftRightCards = () => {
   return (
