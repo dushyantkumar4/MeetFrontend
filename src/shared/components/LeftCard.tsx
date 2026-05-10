@@ -7,10 +7,10 @@ export interface CardProp {
 
 const LeftCard = ({ img, title, description }: CardProp) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
-      <div className="flex flex-col items-center justify-center order-2 md:order-1">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="flex flex-col px-10 md:px-30 justify-center order-2 md:order-1">
         <h2 className="font-bold text-lg gradient-text-primary">{title}</h2>
-        <p>{description}</p>
+        <p className="text-gray-500">{description}</p>
       </div>
       <div className="flex items-center justify-center order-1 md:order-2">
         <Tilt tiltMaxAngleX={25} tiltMaxAngleY={25} perspective={500}>
