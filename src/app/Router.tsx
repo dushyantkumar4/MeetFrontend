@@ -6,7 +6,7 @@ import Protected from "@/features/auth/components/Protected";
 
 // Lazy load pages — critical for performance
 // Each page chunk is only loaded when needed
-const LandingPage = lazy(() => import("@/shared/components/LandingPage"));
+const LandingPage = lazy(() => import("@/shared/pages/LandingPage"));
 const DashboardPage = lazy(
   () => import("@/features/dashboard/pages/DashboardPage"),
 );
@@ -14,7 +14,7 @@ const LoginPage = lazy(() => import("@/features/auth/components/Login"));
 const RegisterPage = lazy(() => import("@/features/auth/components/Register"));
 const MeetingPage = lazy(() => import("@/features/meeting/pages/MeetingPage"));
 const PreJoinPage = lazy(() => import("@/features/meeting/pages/PreJoinPage"));
-const About = lazy(() => import("@/shared/components/About"));
+const About = lazy(() => import("@/shared/pages/About"));
 
 const router = createBrowserRouter([
   {

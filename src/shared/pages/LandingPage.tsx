@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Video } from "lucide-react";
-import CarouselCompo from "./CarouselCompo";
+// import CarouselCompo from "../components/CarouselCompo";
+import LeftRightCards from "../components/LeftRightCards";
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-5">
+    <div className="flex flex-col justify-center items-center gap-10">
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* left section  */}
         <div className="flex items-center justify-center p-6 order-2 md:order-1">
@@ -33,7 +34,8 @@ const LandingPage = () => {
           <img src="/amico.png" alt="img" className="size-90 mt-5" />
         </div>
       </div>
-      <CarouselCompo/>
+      <LeftRightCards/>
+      {/* <CarouselCompo /> */}
     </div>
   );
 };
