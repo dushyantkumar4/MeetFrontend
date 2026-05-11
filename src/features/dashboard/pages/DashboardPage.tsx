@@ -1,12 +1,13 @@
-import { useUser } from '@clerk/react';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { Video, Plus, LogIn } from 'lucide-react';
+import { useUser } from "@clerk/react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Video, Plus, LogIn } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function DashboardPage() {
   const { user } = useUser();
   const navigate = useNavigate();
-  const [joinId, setJoinId] = useState('');
+  const [joinId, setJoinId] = useState("");
 
   const createMeeting = () => {
     const roomId = crypto.randomUUID().slice(0, 8);
@@ -30,13 +31,15 @@ export default function DashboardPage() {
         {/* New meeting */}
         <button
           onClick={createMeeting}
-          className="flex flex-col items-center gap-4 rounded-2xl bg-blue-600 p-8 text-white shadow-lg transition hover:bg-blue-700"
+          className="flex flex-col items-center gap-4 rounded-2xl gradient-primary p-8 text-white shadow-lg transition hover:bg-blue-700"
         >
           <div className="rounded-full bg-white/20 p-4">
             <Plus className="h-8 w-8" />
           </div>
           <span className="text-xl font-semibold">New Meeting</span>
-          <span className="text-sm text-blue-200">Start an instant meeting</span>
+          <span className="text-sm text-blue-200">
+            Start an instant meeting
+          </span>
         </button>
 
         {/* Join meeting */}
@@ -44,22 +47,25 @@ export default function DashboardPage() {
           <div className="rounded-full bg-muted p-4">
             <LogIn className="h-8 w-8 text-foreground" />
           </div>
-          <span className="text-xl font-semibold text-foreground">Join Meeting</span>
+          <span className="text-xl font-semibold text-foreground">
+            Join Meeting
+          </span>
           <input
             type="text"
             value={joinId}
             onChange={(e) => setJoinId(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && joinMeeting()}
+            onKeyDown={(e) => e.key === "Enter" && joinMeeting()}
             placeholder="Enter room ID"
             className="w-full rounded-xl border border-input bg-background px-4 py-2.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           />
-          <button
+          <Button
             onClick={joinMeeting}
             disabled={!joinId.trim()}
-            className="w-full rounded-xl bg-primary px-4 py-2.5 text-primary-foreground font-semibold transition hover:opacity-90 disabled:opacity-50"
+            size="lg"
+            className="w-full gradient-primary text-primary-foreground font-semibold transition hover:opacity-90 disabled:opacity-50"
           >
             Join
-          </button>
+          </Button>
         </div>
       </div>
     </div>

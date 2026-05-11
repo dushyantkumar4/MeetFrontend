@@ -21,12 +21,17 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-4 py-2">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <div
-            className="flex items-center"
-            onClick={() => navigate("/")}
-          >
-            <img src={logo} className="w-14 object-cover cursor-pointer" alt="logo" />
-            <img src={logo1} alt="" className="h-6 w-40 object-cover cursor-pointer"/>
+          <div className="flex items-center" onClick={() => navigate("/")}>
+            <img
+              src={logo}
+              className="w-14 object-cover cursor-pointer"
+              alt="logo"
+            />
+            <img
+              src={logo1}
+              alt=""
+              className="h-6 w-40 object-cover cursor-pointer"
+            />
             {/* <p className={` font-bold text-lg md:text-xl`}>Decent Meet</p> */}
           </div>
         </div>
@@ -44,6 +49,9 @@ const Navbar = () => {
               </a>
             ))}
           </div>
+           <button  className="text-purple-500">
+            <Sun size={20} /> 
+          </button>
           <div className="hidden md:flex gradient-text-primary font-bold">
             <Show when="signed-out">
               <SignInButton />
@@ -60,13 +68,13 @@ const Navbar = () => {
           className="md:hidden text-purple-500"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X/> : <Menu />}
+          {isOpen ? <X /> : <Menu />}
         </button>
       </div>
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden flex flex-col gap-4 px-4 pb-4 bg-gray-800  backdrop-blur-md">
+        <div className="md:hidden flex flex-col gap-4 px-4 pb-4 bg-white/10 backdrop-blur-md  rounded-lg">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -81,7 +89,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between gradient-text-primary">
             <span className="">Theme</span>
             <button>
-              <Sun size={20} /> 
+              <Sun size={20} />
               {/* <Moon size={20} /> */}
             </button>
           </div>

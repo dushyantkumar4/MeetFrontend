@@ -15,6 +15,7 @@ const RegisterPage = lazy(() => import("@/features/auth/components/Register"));
 const MeetingPage = lazy(() => import("@/features/meeting/pages/MeetingPage"));
 const PreJoinPage = lazy(() => import("@/features/meeting/pages/PreJoinPage"));
 const About = lazy(() => import("@/shared/pages/About"));
+const AppLayout = lazy(() => import("@/app/AppLayout"));
 
 const router = createBrowserRouter([
   {
@@ -36,23 +37,33 @@ const router = createBrowserRouter([
       { path: "login", element: <LoginPage /> },
       { path: "register", element: <RegisterPage /> },
       { path: "about", element: <About /> },
-      
+
       // Protected routes (require Clerk auth)
+    ],
+  },
+  {
+    path: "/",
+    element: (
+      <Protected>
+        <Suspense
+          fallback={
+            <div className="flex items-center justify-center min-h-screen">
+              <ClipLoader color="#9C27B0" />
+            </div>
+          }
+        >
+          <AppLayout/>
+        </Suspense>
+      </Protected>
+    ),
+    children: [
       {
         path: "dashboard",
-        element: (
-          <Protected>
-            <DashboardPage />
-          </Protected>
-        ),
+        element: <DashboardPage />,
       },
       {
         path: "meeting/prejoin/:roomId",
-        element: (
-          <Protected>
-            <PreJoinPage />
-          </Protected>
-        ),
+        element: <PreJoinPage />,
       },
     ],
   },
