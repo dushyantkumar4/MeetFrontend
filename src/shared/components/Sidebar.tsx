@@ -17,7 +17,7 @@ const AppSidebar = () => {
       {/* Header */}
       <SidebarHeader className="font-bold rounded-lg bg-purple-50">
         <SidebarMenuButton asChild>
-          <NavLink to="/me" className="">
+          <NavLink to="#" className="">
             <CircleUser /> <span>Profile</span>{" "}
           </NavLink>
         </SidebarMenuButton>

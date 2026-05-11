@@ -86,9 +86,9 @@ function ControlButton({ onClick, active, activeIcon, inactiveIcon, label, dange
     <button
       onClick={onClick}
       className={cn(
-        'flex flex-col items-center gap-1 rounded-xl px-4 py-2.5 text-white transition',
-        active && !danger ? 'bg-zinc-700 hover:bg-zinc-600' : '',
-        danger ? 'bg-red-900/60 hover:bg-red-900' : '',
+        'flex flex-col items-center  gap-1 rounded-xl px-4 py-2.5 text-white transition',
+        active && !danger ? 'gradient-primary' : 'gradient-primary',
+        danger ? 'bg-red-500 hover:bg-red-600' : '',
         !active && !danger ? 'bg-zinc-700 hover:bg-zinc-600' : ''
       )}
     >

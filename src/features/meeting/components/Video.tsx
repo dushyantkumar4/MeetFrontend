@@ -12,7 +12,7 @@ const Video = ({ stream }: VideoProps) => {
             v.srcObject = stream;
           }
         }}
-        className="w-64 h-48 bg-black"
+        className="w-64 h-48 bg-white"
       />
     </div>
   );
