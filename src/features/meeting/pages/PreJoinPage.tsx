@@ -1,27 +1,34 @@
-import { useParams, useNavigate } from 'react-router-dom';
-import { useMediaStream } from '../hooks/useMediaStream';
-import { VideoTile } from '../components/VideoTile';
-import { useUser } from '@clerk/react';
-import { Mic, MicOff, Video, VideoOff } from 'lucide-react';
+import { useParams, useNavigate } from "react-router-dom";
+import { useMediaStream } from "../hooks/useMediaStream";
+import { VideoTile } from "../components/VideoTile";
+import { useUser } from "@clerk/react";
+import { Mic, MicOff, Video, VideoOff } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function PreJoinPage() {
   const { roomId } = useParams<{ roomId: string }>();
   const navigate = useNavigate();
   const { user } = useUser();
-  const { localStream, isVideoEnabled, isAudioEnabled, toggleVideo, toggleAudio } = useMediaStream();
+  const {
+    localStream,
+    isVideoEnabled,
+    isAudioEnabled,
+    toggleVideo,
+    toggleAudio,
+  } = useMediaStream();
 
   const join = () => {
     navigate(`/meeting/${roomId}`);
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-zinc-950 p-6">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-zinc-950 p-6">
       <h1 className="text-2xl font-semibold text-white">Ready to join?</h1>
 
-      <div className="w-full max-w-md overflow-hidden rounded-2xl">
+      <div className="w-full max-w-sm overflow-hidden rounded-2xl">
         <VideoTile
           stream={localStream}
-          name={user?.fullName ?? 'You'}
+          name={user?.fullName ?? "You"}
           isLocal
           isVideoOn={isVideoEnabled}
           isAudioOn={isAudioEnabled}
@@ -30,32 +37,43 @@ export default function PreJoinPage() {
       </div>
 
       <div className="flex gap-4">
-        <button
+        <Button
           onClick={toggleAudio}
-          className="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2.5 text-white hover:bg-zinc-700"
+          size="lg"
+          className="flex items-center gap-2 px-4 py-2.5 text-white gradient-primary"
         >
-          {isAudioEnabled ? <Mic className="h-4 w-4" /> : <MicOff className="h-4 w-4 text-red-400" />}
-          {isAudioEnabled ? 'Mute' : 'Unmute'}
-        </button>
-        <button
+          {isAudioEnabled ? (
+            <Mic className="size-4" />
+          ) : (
+            <MicOff className="size-4 text-red-400" />
+          )}
+          {isAudioEnabled ? "Mute" : "Unmute"}
+        </Button>
+        <Button
           onClick={toggleVideo}
-          className="flex items-center gap-2 rounded-xl bg-zinc-800 px-4 py-2.5 text-white hover:bg-zinc-700"
+          size="lg"
+          className="flex items-center gap-2 px-4 py-2.5 text-white gradient-primary"
         >
-          {isVideoEnabled ? <Video className="h-4 w-4" /> : <VideoOff className="h-4 w-4 text-red-400" />}
-          {isVideoEnabled ? 'Stop Video' : 'Start Video'}
-        </button>
+          {isVideoEnabled ? (
+            <Video className="size-4" />
+          ) : (
+            <VideoOff className="size-4 text-red-400" />
+          )}
+          {isVideoEnabled ? "Stop Video" : "Start Video"}
+        </Button>
       </div>
 
       <div className="text-sm text-zinc-400">
         Room: <span className="font-mono text-white">{roomId}</span>
       </div>
 
-      <button
+      <Button
         onClick={join}
-        className="rounded-xl bg-blue-600 px-8 py-3 text-lg font-semibold text-white transition hover:bg-blue-700"
+        size="lg"
+        className=" text-lg font-semibold text-white gradient-primary py-5 px-8"
       >
         Join Meeting
-      </button>
+      </Button>
     </div>
   );
 }

@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Video } from "lucide-react";
 import LeftRightCards from "../components/LeftRightCards";
 import Title from "../components/Title";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col justify-center items-center gap-10">
       <div className="grid grid-cols-1 md:grid-cols-2">
@@ -19,9 +21,9 @@ const LandingPage = () => {
               <span className="gradient-text-primary">DecentMeet</span> Video
               Call
             </p>
-            <Button className=" gradient-primary">
+            <Button className=" gradient-primary" size="lg" onClick={()=>navigate("/dashboard")}>
               <Video />
-              New meeting
+              Get Started
             </Button>
             <div className="text-gray-400">
               Video calls, chats, and share files with anyone, anytime — for
